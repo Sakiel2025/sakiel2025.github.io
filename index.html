@@ -50,11 +50,13 @@
     grid-template-columns: 200px minmax(0, 1fr);
     gap: clamp(36px, 5vw, 76px);
     align-items: start;
-    padding-block: 42px 72px;
+    padding-block: 42px 0;
   }
   aside {
     position: sticky;
     top: calc(var(--header-height, 58px) + 24px);
+    max-height: calc(100dvh - var(--header-height, 58px) - 40px);
+    overflow-y: auto;
     padding: 6px 0 14px;
   }
   .portrait {
@@ -71,7 +73,7 @@
   .name { margin-top: 14px; font-size: 1.4rem; font-weight: 750; }
   aside .meta { margin-top: 4px; }
   .profile-links { display: grid; gap: 7px; margin-top: 17px; font-size: .9rem; }
-  main { min-width: 0; overflow-wrap: anywhere; }
+  main { min-width: 0; padding-bottom: 72px; overflow-wrap: anywhere; }
   h1, h2 {
     padding-bottom: 8px;
     border-bottom: 1px solid var(--line);
@@ -109,6 +111,8 @@
     .layout { grid-template-columns: minmax(0, 1fr); gap: 25px; padding-top: 26px; }
     aside {
       position: static;
+      max-height: none;
+      overflow: visible;
       display: grid;
       grid-template-columns: 76px minmax(0, 1fr);
       column-gap: 14px;
